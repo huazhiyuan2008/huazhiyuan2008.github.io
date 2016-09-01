@@ -304,150 +304,19 @@
 
       
         
-          
-            <p>support v4 的包被分割成多个小module，你可以根据你项目实际需要来集成</p>
-<pre><code>
-com.android.support:support-compat:24.2.0
-
+          <p>support v4 的包被分割成多个小module，你可以根据你项目实际需要来集成</p>
+<pre><code>com.android.support:support-compat:24.2.0
 com.android.support:support-core-utils:24.2.0
-
 com.android.support:support-core-ui:24.2.0
-
 com.android.support:support-media-compat:24.2.0
-
 com.android.support:support-fragment:24.2.0
 </code></pre><p><code>RecyclerView</code>增加的<code>RecyclerView.OnFlingListener</code> 是 <code>RecyclerView</code> 在快速滚动时的回调接口， <code>SnapHelper</code> 是官方的一个 实现 <code>OnFlingListener</code> 的一个抽象类，<code>LinearSnapHelper</code> 则是一个完整的实现。 <code>LinearSnapHelper</code> 默认实现的功能是类似<code>ViewPager</code>，在滚动结束后，会选择列表某一条居中展示。与ViewPager的区别在于ViewPager手动滑动一次只能滑一页，RecyclerView+SnapHelper方式可以一次滑动好几页，且最终都停留在某页正中间。</p>
 <p><img src="http://7xqerh.com1.z0.glb.clouddn.com/SnapHelper.gif" alt=""></p>
-<p>简单使用</p>
-<pre><code>
-LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-
-recyclerView.setLayoutManager(linearLayoutManager);
-
-LinearSnapHelper snapHelper = new LinearSnapHelper();
-
-snapHelper.attachToRecyclerView(recyclerView);
-</code></pre><p>接下来具体分析<strong>LinearSnapHelper是怎么实现类似ViewPager的功能的</strong></p>
-<h3 id="attachToRecyclerView，居中处理分析"><a href="#attachToRecyclerView，居中处理分析" class="headerlink" title="attachToRecyclerView，居中处理分析"></a><strong>attachToRecyclerView，居中处理分析</strong></h3><pre><code>
-public void attachToRecyclerView(@Nullable RecyclerView recyclerView) throws IllegalStateException {
-
-   ...
-
-   snapToTargetExistingView();
-
-   ...
-
-}
-
-/**
-
- * 1. 找到居中显示的View
-
- * 2. 计算view离当前的位置距离, 调用mRecyclerView.smoothScrollBy使其居中
-
- */
-
-private void snapToTargetExistingView() {
-
-    View snapView = findSnapView(layoutManager);
-
-    int[] snapDistance = calculateDistanceToFinalSnap(layoutManager, snapView);
-
-    if (snapDistance[0] != 0 || snapDistance[1] != 0) {
-
-        mRecyclerView.smoothScrollBy(snapDistance[0], snapDistance[1]);
-
-    }
-
-}
-
-/**
-
- * 1. 找到当前RecyclerView的居中位置center
-
- * 2. 循环遍历子节点，找出子节点居中位置最接近center的视图，及SnapView
-
- */
-
-public View findSnapView(RecyclerView.LayoutManager layoutManager) {
-
-    ...
-
-}
-
-/**
-
- * 计算到targetView要移动的距离
-
- */
-
-@Override
-
-public int[] calculateDistanceToFinalSnap(
-
-        @NonNull RecyclerView.LayoutManager layoutManager, @NonNull View targetView) {
-
-      ... 
-
-}
-</code></pre><h3 id="RecyclerView-OnFling，滑动后停止到居中位置分析"><a href="#RecyclerView-OnFling，滑动后停止到居中位置分析" class="headerlink" title="RecyclerView.OnFling，滑动后停止到居中位置分析"></a><strong>RecyclerView.OnFling，滑动后停止到居中位置分析</strong></h3><p>SnapHelper extends RecyclerView.OnFlingListener，重载onFling函数</p>
-<pre><code>
-public boolean onFling(int velocityX, int velocityY) {
-
-    LayoutManager layoutManager = mRecyclerView.getLayoutManager();
-
-    if (layoutManager == null) {
-
-        return false;
-
-    }
-
-    RecyclerView.Adapter adapter = mRecyclerView.getAdapter();
-
-    if (adapter == null) {
-
-        return false;
-
-    }
-
-    int minFlingVelocity = mRecyclerView.getMinFlingVelocity();
-
-    return (Math.abs(velocityY) &gt; minFlingVelocity || Math.abs(velocityX) &gt; minFlingVelocity)
-
-            &amp;&amp; snapFromFling(layoutManager, velocityX, velocityY);
-
-}
-
-/**
-
- * 同样的套路，先根据移动速度确定最终位置，然后startSmoothScroll
-
- */
-
-private boolean snapFromFling(@NonNull LayoutManager layoutManager, int velocityX,
-
-        int velocityY) {
-
-    ...
-
-    int targetPosition = findTargetSnapPosition(layoutManager, velocityX, velocityY);
-
-    if (targetPosition == RecyclerView.NO_POSITION) {
-
-        return false;
-
-    }
-
-    smoothScroller.setTargetPosition(targetPosition);
-
-    layoutManager.startSmoothScroll(smoothScroller);
-
-    return true;
-
-}
-</code></pre><h2 id="代码下载"><a href="#代码下载" class="headerlink" title="代码下载"></a>代码下载</h2><p><a href="https://github.com/huazhiyuan2008/RecyclerViewCardGallery" target="_blank" rel="external">https://github.com/huazhiyuan2008/RecyclerViewCardGallery</a></p>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/01/LinearSnapHelper源码解析/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
         
       
     </div>

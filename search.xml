@@ -7,18 +7,14 @@
       <title><![CDATA[LinearSnapHelper源码解析]]></title>
       <url>http://yoursite.com/2016/09/01/LinearSnapHelper%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/</url>
       <content type="html"><![CDATA[<p>support v4 的包被分割成多个小module，你可以根据你项目实际需要来集成</p>
-<pre><code>
-com.android.support:support-compat:24.2.0
-
+<pre><code>com.android.support:support-compat:24.2.0
 com.android.support:support-core-utils:24.2.0
-
 com.android.support:support-core-ui:24.2.0
-
 com.android.support:support-media-compat:24.2.0
-
 com.android.support:support-fragment:24.2.0
 </code></pre><p><code>RecyclerView</code>增加的<code>RecyclerView.OnFlingListener</code> 是 <code>RecyclerView</code> 在快速滚动时的回调接口， <code>SnapHelper</code> 是官方的一个 实现 <code>OnFlingListener</code> 的一个抽象类，<code>LinearSnapHelper</code> 则是一个完整的实现。 <code>LinearSnapHelper</code> 默认实现的功能是类似<code>ViewPager</code>，在滚动结束后，会选择列表某一条居中展示。与ViewPager的区别在于ViewPager手动滑动一次只能滑一页，RecyclerView+SnapHelper方式可以一次滑动好几页，且最终都停留在某页正中间。</p>
 <p><img src="http://7xqerh.com1.z0.glb.clouddn.com/SnapHelper.gif" alt=""></p>
+<a id="more"></a>
 <p>简单使用</p>
 <pre><code>
 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
