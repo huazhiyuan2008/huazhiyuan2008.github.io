@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="RecyclerView,Card," />
 
 
 
@@ -84,59 +84,42 @@
 
 
 
-<meta name="description" content="应用UI卡顿常见原因主要在以下几个方面：
+<meta name="description" content="support v4 的包被分割成多个小module，你可以根据你项目实际需要来集成
 
-人为在UI线程中做轻微耗时操作，导致UI线程卡顿；
+com.android.support:support-compat:24.2.0
 
-布局Layout过于复杂，无法在16ms内完成渲染；
+com.android.support:support-core-utils:24.2.0
 
-同一时间动画执行的次数过多，导致CPU或GPU负载过重；
+com.android.support:support-core-ui:24.2.0
 
-View过度绘制，导致某些像素在同一帧时间内被绘制多次，从而使CPU或GPU负载过重；
-
-View频繁的触发measure、layout，导致measure、layout累计耗时过多及整">
+com.android.support:su">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ViewPager卡顿优化实战">
-<meta property="og:url" content="http://yoursite.com/2016/08/15/ViewPager卡顿优化实战/index.html">
+<meta property="og:title" content="LinearSnapHelper源码解析">
+<meta property="og:url" content="http://yoursite.com/2016/09/01/LinearSnapHelper源码解析/index.html">
 <meta property="og:site_name" content="Jameson's Blog">
-<meta property="og:description" content="应用UI卡顿常见原因主要在以下几个方面：
+<meta property="og:description" content="support v4 的包被分割成多个小module，你可以根据你项目实际需要来集成
 
-人为在UI线程中做轻微耗时操作，导致UI线程卡顿；
+com.android.support:support-compat:24.2.0
 
-布局Layout过于复杂，无法在16ms内完成渲染；
+com.android.support:support-core-utils:24.2.0
 
-同一时间动画执行的次数过多，导致CPU或GPU负载过重；
+com.android.support:support-core-ui:24.2.0
 
-View过度绘制，导致某些像素在同一帧时间内被绘制多次，从而使CPU或GPU负载过重；
-
-View频繁的触发measure、layout，导致measure、layout累计耗时过多及整">
-<meta property="og:image" content="http://7xqerh.com1.z0.glb.clouddn.com/opt_lesson_card_before.jpg">
-<meta property="og:image" content="http://7xqerh.com1.z0.glb.clouddn.com/opt_open_traceview.png">
-<meta property="og:image" content="http://7xqerh.com1.z0.glb.clouddn.com/opt_traceview2.png">
-<meta property="og:image" content="http://7xqerh.com1.z0.glb.clouddn.com/opt_traceview.png">
-<meta property="og:image" content="http://7xqerh.com1.z0.glb.clouddn.com/opt_round_angle_imageview.png">
-<meta property="og:image" content="http://7xqerh.com1.z0.glb.clouddn.com/opt_instantiateItem1.png">
-<meta property="og:image" content="http://7xqerh.com1.z0.glb.clouddn.com/opt_instantiateItem_log.png">
-<meta property="og:image" content="http://7xqerh.com1.z0.glb.clouddn.com/opt_instantiateItem2.png">
-<meta property="og:image" content="http://7xqerh.com1.z0.glb.clouddn.com/opt_addview.png">
-<meta property="og:image" content="http://7xqerh.com1.z0.glb.clouddn.com/opt_addview_log.png">
-<meta property="og:image" content="http://7xqerh.com1.z0.glb.clouddn.com/opt_lesson_card_after.jpg">
-<meta property="og:image" content="http://7xqerh.com1.z0.glb.clouddn.com/opt_lesson_card_lls.jpg">
-<meta property="og:updated_time" content="2016-08-16T06:45:11.000Z">
+com.android.support:su">
+<meta property="og:image" content="http://7xqerh.com1.z0.glb.clouddn.com/SnapHelper.gif">
+<meta property="og:updated_time" content="2016-09-01T07:02:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ViewPager卡顿优化实战">
-<meta name="twitter:description" content="应用UI卡顿常见原因主要在以下几个方面：
+<meta name="twitter:title" content="LinearSnapHelper源码解析">
+<meta name="twitter:description" content="support v4 的包被分割成多个小module，你可以根据你项目实际需要来集成
 
-人为在UI线程中做轻微耗时操作，导致UI线程卡顿；
+com.android.support:support-compat:24.2.0
 
-布局Layout过于复杂，无法在16ms内完成渲染；
+com.android.support:support-core-utils:24.2.0
 
-同一时间动画执行的次数过多，导致CPU或GPU负载过重；
+com.android.support:support-core-ui:24.2.0
 
-View过度绘制，导致某些像素在同一帧时间内被绘制多次，从而使CPU或GPU负载过重；
-
-View频繁的触发measure、layout，导致measure、layout累计耗时过多及整">
-<meta name="twitter:image" content="http://7xqerh.com1.z0.glb.clouddn.com/opt_lesson_card_before.jpg">
+com.android.support:su">
+<meta name="twitter:image" content="http://7xqerh.com1.z0.glb.clouddn.com/SnapHelper.gif">
 
 
 
@@ -157,9 +140,9 @@ View频繁的触发measure、layout，导致measure、layout累计耗时过多�
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/08/15/ViewPager卡顿优化实战/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/09/01/LinearSnapHelper源码解析/"/>
 
-  <title> ViewPager卡顿优化实战 | Jameson's Blog </title>
+  <title> LinearSnapHelper源码解析 | Jameson's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -302,7 +285,7 @@ View频繁的触发measure、layout，导致measure、layout累计耗时过多�
             
             
               
-                ViewPager卡顿优化实战
+                LinearSnapHelper源码解析
               
             
           </h1>
@@ -314,8 +297,8 @@ View频繁的触发measure、layout，导致measure、layout累计耗时过多�
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-08-15T16:46:59+08:00" content="2016-08-15">
-              2016-08-15
+            <time itemprop="dateCreated" datetime="2016-09-01T14:55:30+08:00" content="2016-09-01">
+              2016-09-01
             </time>
           </span>
 
@@ -342,63 +325,148 @@ View频繁的触发measure、layout，导致measure、layout累计耗时过多�
       
 
       
-        <p>应用UI卡顿常见原因主要在以下几个方面：</p>
-<ol>
-<li><p>人为在UI线程中做轻微耗时操作，导致UI线程卡顿；</p>
-</li>
-<li><p>布局Layout过于复杂，无法在16ms内完成渲染；</p>
-</li>
-<li><p>同一时间动画执行的次数过多，导致CPU或GPU负载过重；</p>
-</li>
-<li><p>View过度绘制，导致某些像素在同一帧时间内被绘制多次，从而使CPU或GPU负载过重；</p>
-</li>
-<li><p>View频繁的触发measure、layout，导致measure、layout累计耗时过多及整个View频繁的重新渲染；</p>
-</li>
-<li><p>内存频繁触发GC过多（同一帧中频繁创建内存），导致暂时阻塞渲染操作；</p>
-</li>
-<li><p>冗余资源及逻辑等导致加载和执行缓慢；</p>
-</li>
-</ol>
-<a id="more"></a>
-<h2 id="发现和定位问题，及解决方案"><a href="#发现和定位问题，及解决方案" class="headerlink" title="发现和定位问题，及解决方案"></a>发现和定位问题，及解决方案</h2><p>打开GPU绘制，手指在卡片上来回滑来滑去，通过观察高线的位置判断卡顿的时机，我们发现滑动停止后再一次滑动时出现高峰，如图，按照经验ViewPager的卡顿问题在于滑动事件的回调，重点排查<code>onPageScrolled</code>，<code>onPageSelected</code>及<code>Adapter</code>的<code>instantiateItem</code>方法。</p>
-<p><img src="http://7xqerh.com1.z0.glb.clouddn.com/opt_lesson_card_before.jpg" width="300px" alert="http://7xqerh.com1.z0.glb.clouddn.com/opt_lesson_card_before.jpg?imageView2/2/h/500"></p>
-<p>为了更精确的定位耗时方法，可以使用TraceView。打开DDMS，进入下面界面</p>
-<p><img src="http://7xqerh.com1.z0.glb.clouddn.com/opt_open_traceview.png" alt=""></p>
-<p>点击红点位置开始录制，滑动手机屏幕，一段时间后再点击红点停止录制。分析下面的图</p>
-<p><img src="http://7xqerh.com1.z0.glb.clouddn.com/opt_traceview2.png" alt=""></p>
-<p><img src="http://7xqerh.com1.z0.glb.clouddn.com/opt_traceview.png" alt=""></p>
-<p>可以看到耗时最多的两个方法，RoundAngleImageView的draw方法和CardAdapter的instantiateItem方法。我们通过打log也应证了TraceView的判断，<strong>ViewPager滑动过程中RoundAngleImageView会不断绘制</strong>，在滑动停顿后又开始滑动得时候出现耗时峰值。优化的方案就是用RoundedImageView替换掉自定义的RoundAngleImageView，RoundedImageView使用BitmapShader方式优于RoundAngleImageView使用的PorterDuffXfermode圆角方案。特别在不断绘制的情况下，效果较明显。</p>
-<p><img src="http://7xqerh.com1.z0.glb.clouddn.com/opt_round_angle_imageview.png" alt=""></p>
-<p>接下来分析CardAdapter的instantiateItem方法，同样先看log，定位更细的方法</p>
-<p><img src="http://7xqerh.com1.z0.glb.clouddn.com/opt_instantiateItem1.png" alt=""></p>
-<p><img src="http://7xqerh.com1.z0.glb.clouddn.com/opt_instantiateItem_log.png" alt=""></p>
-<p>通过日志看出<code>val view = LayoutInflater.from(container.context).inflate(R.layout.``item_lesson_card``, container, false) as LessonCardView</code>和<code>initLessonCardView(position, view, cardList)</code>两个方法。</p>
-<p>inflate方法可做的优化就是减少View层级，把最外层的RelativeLayout替换成LinearLayout。另外一个优化就是把 <code>initLessonCardView</code>方法加入延时，对于当前显示的item延时为0，不可见的item延时时间与当前View的位置步距依次延长。通过分步延时避免UI线程一直被占用。</p>
-<p><img src="http://7xqerh.com1.z0.glb.clouddn.com/opt_instantiateItem2.png" alt=""></p>
-<p>下面来跟踪<code>initLessonCardView</code>方法</p>
-<p><img src="http://7xqerh.com1.z0.glb.clouddn.com/opt_addview.png" alt=""></p>
-<p><img src="http://7xqerh.com1.z0.glb.clouddn.com/opt_addview_log.png" alt=""></p>
-<p>通过日志发现耗时最大的在于View的构造函数。</p>
-<pre><code>val exerciseItemView: ExerciseItemView = ExerciseItemView(context)
-</code></pre><p>尝试把View的创建方法改成<code>inflate</code>方式，事实证明然并卵。</p>
-<pre><code>val exerciseItemView: ExerciseItemView = View.inflate(context, R.layout.view_exercise_item, null) as ExerciseItemView
-</code></pre><h2 id="优化后的图"><a href="#优化后的图" class="headerlink" title="优化后的图"></a>优化后的图</h2><p>左边是优化后的图，右边是某竞品的图，比较下很明显看出渲染的差异来</p>
-<p><img src="http://7xqerh.com1.z0.glb.clouddn.com/opt_lesson_card_after.jpg" width="300px"><br><img src="http://7xqerh.com1.z0.glb.clouddn.com/opt_lesson_card_lls.jpg" width="300px"></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>优化到此为止，总结一下View的优化套路。首先发现问题，通过GPU柱状图判断卡顿程度。然后通过TraceView定位卡顿的方法，打log方式找到更具体的耗时细节，然后逐个优化。</p>
-<p>本次ViewPager的优化包括：</p>
-<ul>
-<li><p><code>RoundedImageView</code>控件的选择，选择更高效的圆角方案</p>
-</li>
-<li><p>优化view的层次结构，尽量减少层级，同样层级情况使用<code>LinearLayout</code>优于<code>RelativeLayout</code></p>
-</li>
-<li><p><code>adapter instantiateItem</code>分布延迟渲染</p>
-</li>
-</ul>
-<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><p>ViewPager里包含ListView时，<code>layout_height</code>属性为<code>wrap_content</code>会导致<code>adapter getView</code>不断被调用，建议改成<code>match_content</code></p>
-<pre><code>&lt;ListView 
-    android:layout_width=&quot;match_parent&quot; 
-    android:layout_height=&quot;wrap_content&quot; /&gt;
-</code></pre>
+        <p>support v4 的包被分割成多个小module，你可以根据你项目实际需要来集成</p>
+<pre><code>
+com.android.support:support-compat:24.2.0
+
+com.android.support:support-core-utils:24.2.0
+
+com.android.support:support-core-ui:24.2.0
+
+com.android.support:support-media-compat:24.2.0
+
+com.android.support:support-fragment:24.2.0
+</code></pre><p><code>RecyclerView</code>增加的<code>RecyclerView.OnFlingListener</code> 是 <code>RecyclerView</code> 在快速滚动时的回调接口， <code>SnapHelper</code> 是官方的一个 实现 <code>OnFlingListener</code> 的一个抽象类，<code>LinearSnapHelper</code> 则是一个完整的实现。 <code>LinearSnapHelper</code> 默认实现的功能是类似<code>ViewPager</code>，在滚动结束后，会选择列表某一条居中展示。与ViewPager的区别在于ViewPager手动滑动一次只能滑一页，RecyclerView+SnapHelper方式可以一次滑动好几页，且最终都停留在某页正中间。</p>
+<p><img src="http://7xqerh.com1.z0.glb.clouddn.com/SnapHelper.gif" alt=""></p>
+<p>简单使用</p>
+<pre><code>
+LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+
+recyclerView.setLayoutManager(linearLayoutManager);
+
+LinearSnapHelper snapHelper = new LinearSnapHelper();
+
+snapHelper.attachToRecyclerView(recyclerView);
+</code></pre><p>接下来具体分析<strong>LinearSnapHelper是怎么实现类似ViewPager的功能的</strong></p>
+<h3 id="attachToRecyclerView，居中处理分析"><a href="#attachToRecyclerView，居中处理分析" class="headerlink" title="attachToRecyclerView，居中处理分析"></a><strong>attachToRecyclerView，居中处理分析</strong></h3><pre><code>
+public void attachToRecyclerView(@Nullable RecyclerView recyclerView) throws IllegalStateException {
+
+   ...
+
+   snapToTargetExistingView();
+
+   ...
+
+}
+
+/**
+
+ * 1. 找到居中显示的View
+
+ * 2. 计算view离当前的位置距离, 调用mRecyclerView.smoothScrollBy使其居中
+
+ */
+
+private void snapToTargetExistingView() {
+
+    View snapView = findSnapView(layoutManager);
+
+    int[] snapDistance = calculateDistanceToFinalSnap(layoutManager, snapView);
+
+    if (snapDistance[0] != 0 || snapDistance[1] != 0) {
+
+        mRecyclerView.smoothScrollBy(snapDistance[0], snapDistance[1]);
+
+    }
+
+}
+
+/**
+
+ * 1. 找到当前RecyclerView的居中位置center
+
+ * 2. 循环遍历子节点，找出子节点居中位置最接近center的视图，及SnapView
+
+ */
+
+public View findSnapView(RecyclerView.LayoutManager layoutManager) {
+
+    ...
+
+}
+
+/**
+
+ * 计算到targetView要移动的距离
+
+ */
+
+@Override
+
+public int[] calculateDistanceToFinalSnap(
+
+        @NonNull RecyclerView.LayoutManager layoutManager, @NonNull View targetView) {
+
+      ... 
+
+}
+</code></pre><h3 id="RecyclerView-OnFling，滑动后停止到居中位置分析"><a href="#RecyclerView-OnFling，滑动后停止到居中位置分析" class="headerlink" title="RecyclerView.OnFling，滑动后停止到居中位置分析"></a><strong>RecyclerView.OnFling，滑动后停止到居中位置分析</strong></h3><p>SnapHelper extends RecyclerView.OnFlingListener，重载onFling函数</p>
+<pre><code>
+public boolean onFling(int velocityX, int velocityY) {
+
+    LayoutManager layoutManager = mRecyclerView.getLayoutManager();
+
+    if (layoutManager == null) {
+
+        return false;
+
+    }
+
+    RecyclerView.Adapter adapter = mRecyclerView.getAdapter();
+
+    if (adapter == null) {
+
+        return false;
+
+    }
+
+    int minFlingVelocity = mRecyclerView.getMinFlingVelocity();
+
+    return (Math.abs(velocityY) &gt; minFlingVelocity || Math.abs(velocityX) &gt; minFlingVelocity)
+
+            &amp;&amp; snapFromFling(layoutManager, velocityX, velocityY);
+
+}
+
+/**
+
+ * 同样的套路，先根据移动速度确定最终位置，然后startSmoothScroll
+
+ */
+
+private boolean snapFromFling(@NonNull LayoutManager layoutManager, int velocityX,
+
+        int velocityY) {
+
+    ...
+
+    int targetPosition = findTargetSnapPosition(layoutManager, velocityX, velocityY);
+
+    if (targetPosition == RecyclerView.NO_POSITION) {
+
+        return false;
+
+    }
+
+    smoothScroller.setTargetPosition(targetPosition);
+
+    layoutManager.startSmoothScroll(smoothScroller);
+
+    return true;
+
+}
+</code></pre><h2 id="代码下载"><a href="#代码下载" class="headerlink" title="代码下载"></a>代码下载</h2><p><a href="https://github.com/huazhiyuan2008/RecyclerViewCardGallery" target="_blank" rel="external">https://github.com/huazhiyuan2008/RecyclerViewCardGallery</a></p>
+
       
     </div>
 
@@ -418,18 +486,26 @@ View频繁的触发measure、layout，导致measure、layout累计耗时过多�
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/RecyclerView/" rel="tag">#RecyclerView</a>
+          
+            <a href="/tags/Card/" rel="tag">#Card</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/08/15/ViewPager卡顿优化实战/" rel="next" title="ViewPager卡顿优化实战">
+                <i class="fa fa-chevron-left"></i> ViewPager卡顿优化实战
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/01/LinearSnapHelper源码解析/" rel="prev" title="LinearSnapHelper源码解析">
-                LinearSnapHelper源码解析 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -591,7 +667,7 @@ View频繁的触发measure、layout，导致measure、layout累计耗时过多�
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#发现和定位问题，及解决方案"><span class="nav-number">1.</span> <span class="nav-text">发现和定位问题，及解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化后的图"><span class="nav-number">2.</span> <span class="nav-text">优化后的图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tips"><span class="nav-number">4.</span> <span class="nav-text">Tips</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#attachToRecyclerView，居中处理分析"><span class="nav-number">1.</span> <span class="nav-text">attachToRecyclerView，居中处理分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RecyclerView-OnFling，滑动后停止到居中位置分析"><span class="nav-number">2.</span> <span class="nav-text">RecyclerView.OnFling，滑动后停止到居中位置分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码下载"><span class="nav-number"></span> <span class="nav-text">代码下载</span></a></div>
             
           </div>
         </section>
