@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="RecyclerView,Card," />
 
 
 
@@ -84,15 +84,30 @@
 
 
 
-<meta name="description" content="An Developer&apos;s self-improvement">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jameson's Blog">
-<meta property="og:url" content="http://yoursite.com/tags/Card/index.html">
+<meta name="description" content="先贴图
+要实现上面的画廊效果，传统通过ViewPager clipChildren置为false实现。网上很多教程这个不多说，现在说说用RecyclerView实现上面的效果。这个效果分两步:
+
+ViewPager滑动最终居中停止
+滑动过程中缩放">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用RecyclerView实现Gallery画廊效果">
+<meta property="og:url" content="http://yoursite.com/2016/09/02/使用RecyclerView实现Gallery画廊效果/index.html">
 <meta property="og:site_name" content="Jameson's Blog">
-<meta property="og:description" content="An Developer&apos;s self-improvement">
+<meta property="og:description" content="先贴图
+要实现上面的画廊效果，传统通过ViewPager clipChildren置为false实现。网上很多教程这个不多说，现在说说用RecyclerView实现上面的效果。这个效果分两步:
+
+ViewPager滑动最终居中停止
+滑动过程中缩放">
+<meta property="og:image" content="http://7xqerh.com1.z0.glb.clouddn.com/RecyclerViewCardGallery2.gif">
+<meta property="og:updated_time" content="2016-09-02T08:31:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jameson's Blog">
-<meta name="twitter:description" content="An Developer&apos;s self-improvement">
+<meta name="twitter:title" content="使用RecyclerView实现Gallery画廊效果">
+<meta name="twitter:description" content="先贴图
+要实现上面的画廊效果，传统通过ViewPager clipChildren置为false实现。网上很多教程这个不多说，现在说说用RecyclerView实现上面的效果。这个效果分两步:
+
+ViewPager滑动最终居中停止
+滑动过程中缩放">
+<meta name="twitter:image" content="http://7xqerh.com1.z0.glb.clouddn.com/RecyclerViewCardGallery2.gif">
 
 
 
@@ -113,9 +128,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/Card/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/09/02/使用RecyclerView实现Gallery画廊效果/"/>
 
-  <title> Tag: Card | Jameson's Blog </title>
+  <title> 使用RecyclerView实现Gallery画廊效果 | Jameson's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -136,7 +151,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -237,74 +252,182 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        Card
-        <small>Tag</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/02/使用RecyclerView实现Gallery画廊效果/" itemprop="url">
-              
-                <span itemprop="name">使用RecyclerView实现Gallery画廊效果</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-02T16:25:42+08:00"
-              content="2016-09-02" >
-          09-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/01/LinearSnapHelper源码解析/" itemprop="url">
-              
-                <span itemprop="name">LinearSnapHelper源码解析</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-01T14:55:30+08:00"
-              content="2016-09-01" >
-          09-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </div>
 
   
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                使用RecyclerView实现Gallery画廊效果
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-09-02T16:25:42+08:00" content="2016-09-02">
+              2016-09-02
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>先贴图<br><img src="http://7xqerh.com1.z0.glb.clouddn.com/RecyclerViewCardGallery2.gif" alt=""></p>
+<p>要实现上面的画廊效果，传统通过ViewPager clipChildren置为false实现。网上很多教程这个不多说，现在说说用RecyclerView实现上面的效果。这个效果分两步:</p>
+<ol>
+<li>ViewPager滑动最终居中停止</li>
+<li>滑动过程中缩放</li>
+</ol>
+<a id="more"></a>
+<h2 id="ViewPager滑动最终居中停止"><a href="#ViewPager滑动最终居中停止" class="headerlink" title="ViewPager滑动最终居中停止"></a>ViewPager滑动最终居中停止</h2><p><a href="https://developer.android.com/topic/libraries/support-library/features.html#v4" target="_blank" rel="external">support v4 24.2.0</a>中增加一个非常重要的类<code>SnapHelper</code>，他的作用是让RecyclerView滑动视图后使停止位置正好停在某页的正中间。使用方式很简单<br>重点在于<code>new LinearSnapHelper().attachToRecyclerView(recyclerView);</code></p>
+<pre><code>LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+recyclerView.setLayoutManager(linearLayoutManager);
+
+new LinearSnapHelper().attachToRecyclerView(recyclerView);
+</code></pre><p>一行代码搞定居中，<a href="http://huazhiyuan2008.github.io/2016/09/01/LinearSnapHelper源码解析/" target="_blank" rel="external">LinearSnapHelper的源码解析查看这里</a>。</p>
+<h2 id="滑动过程中缩放"><a href="#滑动过程中缩放" class="headerlink" title="滑动过程中缩放"></a>滑动过程中缩放</h2><p>毫无疑问，RecyclerView的滑动缩放必须要监听RecyclerView的滑动</p>
+<pre><code>mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+
+    @Override
+    public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+        super.onScrolled(recyclerView, dx, dy);
+        // dx&gt;0则表示右滑, dx&lt;0表示左滑, dy&lt;0表示上滑, dy&gt;0表示下滑
+        mCurrentItemOffset += dx;
+        computeCurrentItemPos();
+        onScrolledChangedCallback();
+    }
+});
+</code></pre><p>mCurrentItemOffset为滑动总距离，Card每页滑动的距离是固定的，根据这个可以计算出当前显示的位置。缩放看<code>onScrolledChangedCallback</code>这个函数，有了滑动位置就能实时计算滑动某页的百分比<br><code>float percent = (float) Math.max(Math.abs(offset) * 1.0 / mOnePageWidth, 0.0001);</code></p>
+<p>得到百分比, 再获取当前位置相邻的视图调用<code>setScaleY</code>函数实现缩放</p>
+<pre><code>/**
+ * RecyclerView位移事件监听, view大小随位移事件变化
+ */
+private void onScrolledChangedCallback() {
+    int offset = mCurrentItemOffset - mCurrentItemPos * mOnePageWidth;
+    float percent = (float) Math.max(Math.abs(offset) * 1.0 / mOnePageWidth, 0.0001);
+
+    View leftView = null;
+    View currentView;
+    View rightView = null;
+    if (mCurrentItemPos &gt; 0) {
+        leftView = mRecyclerView.getLayoutManager().findViewByPosition(mCurrentItemPos - 1);
+    }
+    currentView = mRecyclerView.getLayoutManager().findViewByPosition(mCurrentItemPos);
+    if (mCurrentItemPos &lt; mRecyclerView.getAdapter().getItemCount() - 1) {
+        rightView = mRecyclerView.getLayoutManager().findViewByPosition(mCurrentItemPos + 1);
+    }
+
+    if (leftView != null) {
+        // y = (1 - mScale)x + mScale
+        leftView.setScaleY((1 - mScale) * percent + mScale);
+    }
+    if (currentView != null) {
+        // y = (mScale - 1)x + 1
+        currentView.setScaleY((mScale - 1) * percent + 1);
+    }
+    if (rightView != null) {
+        // y = (1 - mScale)x + mScale
+        rightView.setScaleY((1 - mScale) * percent + mScale);
+    }
+}
+</code></pre><h2 id="完整代码下载"><a href="#完整代码下载" class="headerlink" title="完整代码下载"></a>完整代码下载</h2><p><a href="https://github.com/huazhiyuan2008/RecyclerViewCardGallery" target="_blank" rel="external">https://github.com/huazhiyuan2008/RecyclerViewCardGallery</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/RecyclerView/" rel="tag">#RecyclerView</a>
+          
+            <a href="/tags/Card/" rel="tag">#Card</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/01/LinearSnapHelper源码解析/" rel="next" title="LinearSnapHelper源码解析">
+                <i class="fa fa-chevron-left"></i> LinearSnapHelper源码解析
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -312,6 +435,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -331,8 +458,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://avatars1.githubusercontent.com/u/2877748?v=3&s=460"
@@ -431,6 +567,17 @@
       </section>
 
       
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ViewPager滑动最终居中停止"><span class="nav-number">1.</span> <span class="nav-text">ViewPager滑动最终居中停止</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#滑动过程中缩放"><span class="nav-number">2.</span> <span class="nav-text">滑动过程中缩放</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#完整代码下载"><span class="nav-number">3.</span> <span class="nav-text">完整代码下载</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
 
     </div>
   </aside>
@@ -526,6 +673,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 

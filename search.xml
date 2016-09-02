@@ -4,6 +4,71 @@
   
     
     <entry>
+      <title><![CDATA[使用RecyclerView实现Gallery画廊效果]]></title>
+      <url>http://yoursite.com/2016/09/02/%E4%BD%BF%E7%94%A8RecyclerView%E5%AE%9E%E7%8E%B0Gallery%E7%94%BB%E5%BB%8A%E6%95%88%E6%9E%9C/</url>
+      <content type="html"><![CDATA[<p>先贴图<br><img src="http://7xqerh.com1.z0.glb.clouddn.com/RecyclerViewCardGallery2.gif" alt=""></p>
+<p>要实现上面的画廊效果，传统通过ViewPager clipChildren置为false实现。网上很多教程这个不多说，现在说说用RecyclerView实现上面的效果。这个效果分两步:</p>
+<ol>
+<li>ViewPager滑动最终居中停止</li>
+<li>滑动过程中缩放</li>
+</ol>
+<a id="more"></a>
+<h2 id="ViewPager滑动最终居中停止"><a href="#ViewPager滑动最终居中停止" class="headerlink" title="ViewPager滑动最终居中停止"></a>ViewPager滑动最终居中停止</h2><p><a href="https://developer.android.com/topic/libraries/support-library/features.html#v4" target="_blank" rel="external">support v4 24.2.0</a>中增加一个非常重要的类<code>SnapHelper</code>，他的作用是让RecyclerView滑动视图后使停止位置正好停在某页的正中间。使用方式很简单<br>重点在于<code>new LinearSnapHelper().attachToRecyclerView(recyclerView);</code></p>
+<pre><code>LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+recyclerView.setLayoutManager(linearLayoutManager);
+
+new LinearSnapHelper().attachToRecyclerView(recyclerView);
+</code></pre><p>一行代码搞定居中，<a href="http://huazhiyuan2008.github.io/2016/09/01/LinearSnapHelper源码解析/" target="_blank" rel="external">LinearSnapHelper的源码解析查看这里</a>。</p>
+<h2 id="滑动过程中缩放"><a href="#滑动过程中缩放" class="headerlink" title="滑动过程中缩放"></a>滑动过程中缩放</h2><p>毫无疑问，RecyclerView的滑动缩放必须要监听RecyclerView的滑动</p>
+<pre><code>mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+
+    @Override
+    public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+        super.onScrolled(recyclerView, dx, dy);
+        // dx&gt;0则表示右滑, dx&lt;0表示左滑, dy&lt;0表示上滑, dy&gt;0表示下滑
+        mCurrentItemOffset += dx;
+        computeCurrentItemPos();
+        onScrolledChangedCallback();
+    }
+});
+</code></pre><p>mCurrentItemOffset为滑动总距离，Card每页滑动的距离是固定的，根据这个可以计算出当前显示的位置。缩放看<code>onScrolledChangedCallback</code>这个函数，有了滑动位置就能实时计算滑动某页的百分比<br><code>float percent = (float) Math.max(Math.abs(offset) * 1.0 / mOnePageWidth, 0.0001);</code></p>
+<p>得到百分比, 再获取当前位置相邻的视图调用<code>setScaleY</code>函数实现缩放</p>
+<pre><code>/**
+ * RecyclerView位移事件监听, view大小随位移事件变化
+ */
+private void onScrolledChangedCallback() {
+    int offset = mCurrentItemOffset - mCurrentItemPos * mOnePageWidth;
+    float percent = (float) Math.max(Math.abs(offset) * 1.0 / mOnePageWidth, 0.0001);
+
+    View leftView = null;
+    View currentView;
+    View rightView = null;
+    if (mCurrentItemPos &gt; 0) {
+        leftView = mRecyclerView.getLayoutManager().findViewByPosition(mCurrentItemPos - 1);
+    }
+    currentView = mRecyclerView.getLayoutManager().findViewByPosition(mCurrentItemPos);
+    if (mCurrentItemPos &lt; mRecyclerView.getAdapter().getItemCount() - 1) {
+        rightView = mRecyclerView.getLayoutManager().findViewByPosition(mCurrentItemPos + 1);
+    }
+
+    if (leftView != null) {
+        // y = (1 - mScale)x + mScale
+        leftView.setScaleY((1 - mScale) * percent + mScale);
+    }
+    if (currentView != null) {
+        // y = (mScale - 1)x + 1
+        currentView.setScaleY((mScale - 1) * percent + 1);
+    }
+    if (rightView != null) {
+        // y = (1 - mScale)x + mScale
+        rightView.setScaleY((1 - mScale) * percent + mScale);
+    }
+}
+</code></pre><h2 id="完整代码下载"><a href="#完整代码下载" class="headerlink" title="完整代码下载"></a>完整代码下载</h2><p><a href="https://github.com/huazhiyuan2008/RecyclerViewCardGallery" target="_blank" rel="external">https://github.com/huazhiyuan2008/RecyclerViewCardGallery</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[LinearSnapHelper源码解析]]></title>
       <url>http://yoursite.com/2016/09/01/LinearSnapHelper%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/</url>
       <content type="html"><![CDATA[<p>Google最新发布的<a href="https://developer.android.com/topic/libraries/support-library/features.html#v4" target="_blank" rel="external">support v4</a>包更新到24.2.0，由原来的一个大包分割成多个小module。这次来聊聊RecyclerView的新特性和SnapHelper的关系。</p>
