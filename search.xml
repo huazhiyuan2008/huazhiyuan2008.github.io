@@ -6,7 +6,7 @@
     <entry>
       <title><![CDATA[使用RecyclerView实现Gallery画廊效果]]></title>
       <url>http://yoursite.com/2016/09/02/%E4%BD%BF%E7%94%A8RecyclerView%E5%AE%9E%E7%8E%B0Gallery%E7%94%BB%E5%BB%8A%E6%95%88%E6%9E%9C/</url>
-      <content type="html"><![CDATA[<p>先贴图<br><img src="http://7xqerh.com1.z0.glb.clouddn.com/RecyclerViewCardGallery2.gif" alt=""></p>
+      <content type="html"><![CDATA[<p>先贴图<br><img src="http://7xqerh.com1.z0.glb.clouddn.com/RecyclerViewCardGallery_blur.gif" alt=""></p>
 <p>要实现上面的画廊效果，传统通过ViewPager clipChildren置为false实现。网上很多教程这个不多说，现在说说用RecyclerView实现上面的效果。这个效果分两步:</p>
 <ol>
 <li>ViewPager滑动最终居中停止</li>
