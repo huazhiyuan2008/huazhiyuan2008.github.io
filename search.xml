@@ -72,7 +72,7 @@ private void onScrolledChangedCallback() {
       <title><![CDATA[LinearSnapHelper源码解析]]></title>
       <url>http://yoursite.com/2016/09/01/LinearSnapHelper%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/</url>
       <content type="html"><![CDATA[<p>Google最新发布的<a href="https://developer.android.com/topic/libraries/support-library/features.html#v7-recyclerview" target="_blank" rel="external">support recyclerview</a>包更新到24.2.0，这次来聊聊RecyclerView的新特性和SnapHelper的关系。</p>
-<p>一句话介绍<code>SnapHelper</code>: SnapHelper是RecyclerView功能的一种拓展，使RecyclerView滑动行为类似ViewPager，无论怎么滑动最终停留在某页正中间。ViewPager一次只能滑动一页，RecyclerView+SnapHelper方式可以一次滑动好几页，且最终都停留在某页正中间。非常实用和酷炫。<br>SnapHelper的实现原理是监听RecyclerView.OnFlingListener中的onFling接口。<code>LinearSnapHelper</code>是抽象类SnapHelper的具体实现。</p>
+<p>一句话介绍<a href="https://developer.android.com/reference/android/support/v7/widget/SnapHelper.html" target="_blank" rel="external">SnapHelper</a>: SnapHelper是RecyclerView功能的一种拓展，使RecyclerView滑动行为类似ViewPager，无论怎么滑动最终停留在某页正中间。ViewPager一次只能滑动一页，RecyclerView+SnapHelper方式可以一次滑动好几页，且最终都停留在某页正中间。非常实用和酷炫。<br>SnapHelper的实现原理是监听RecyclerView.OnFlingListener中的onFling接口。<code>LinearSnapHelper</code>是抽象类SnapHelper的具体实现。</p>
 <p><img src="http://7xqerh.com1.z0.glb.clouddn.com/SnapHelper.gif" alt=""></p>
 <a id="more"></a>
 <p>上面的效果只需下面几行代码即可。重点在于<code>new LinearSnapHelper().attachToRecyclerView(recyclerView);</code></p>
