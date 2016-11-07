@@ -99,7 +99,7 @@ ViewPager滑动最终居中停止
 ViewPager滑动最终居中停止
 滑动过程中缩放">
 <meta property="og:image" content="http://7xqerh.com1.z0.glb.clouddn.com/RecyclerViewCardGallery_blur.gif">
-<meta property="og:updated_time" content="2016-09-03T16:59:32.000Z">
+<meta property="og:updated_time" content="2016-11-07T08:33:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用RecyclerView实现Gallery画廊效果">
 <meta name="twitter:description" content="先贴图
@@ -320,7 +320,7 @@ ViewPager滑动最终居中停止
 <li>滑动过程中缩放</li>
 </ol>
 <a id="more"></a>
-<h2 id="ViewPager滑动最终居中停止"><a href="#ViewPager滑动最终居中停止" class="headerlink" title="ViewPager滑动最终居中停止"></a>ViewPager滑动最终居中停止</h2><p><a href="https://developer.android.com/topic/libraries/support-library/features.html#v4" target="_blank" rel="external">support v4 24.2.0</a>中增加一个非常重要的类<code>SnapHelper</code>，他的作用是让RecyclerView滑动视图后使停止位置正好停在某页的正中间。使用方式很简单<br>重点在于<code>new LinearSnapHelper().attachToRecyclerView(recyclerView);</code></p>
+<h2 id="ViewPager滑动最终居中停止"><a href="#ViewPager滑动最终居中停止" class="headerlink" title="ViewPager滑动最终居中停止"></a>ViewPager滑动最终居中停止</h2><p><a href="https://developer.android.com/topic/libraries/support-library/features.html#v7-recyclerview" target="_blank" rel="external">Support RecyclerView</a>中增加一个非常重要的类<code>SnapHelper</code>，他的作用是让RecyclerView滑动视图后使停止位置正好停在某页的正中间。使用方式很简单<br>重点在于<code>new LinearSnapHelper().attachToRecyclerView(recyclerView);</code></p>
 <pre><code>LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
 recyclerView.setLayoutManager(linearLayoutManager);
 
@@ -413,6 +413,10 @@ private void onScrolledChangedCallback() {
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2016/11/07/Android集成React Native实现多Tab页/" rel="prev" title="Android集成React Native实现多Tab页">
+                Android集成React Native实现多Tab页 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -479,7 +483,7 @@ private void onScrolledChangedCallback() {
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -489,7 +493,7 @@ private void onScrolledChangedCallback() {
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

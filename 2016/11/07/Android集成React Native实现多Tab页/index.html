@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="React Native," />
 
 
 
@@ -84,59 +84,38 @@
 
 
 
-<meta name="description" content="应用UI卡顿常见原因主要在以下几个方面：
-
-人为在UI线程中做轻微耗时操作，导致UI线程卡顿；
-
-布局Layout过于复杂，无法在16ms内完成渲染；
-
-同一时间动画执行的次数过多，导致CPU或GPU负载过重；
-
-View过度绘制，导致某些像素在同一帧时间内被绘制多次，从而使CPU或GPU负载过重；
-
-View频繁的触发measure、layout，导致measure、layout累计耗时过多及整">
+<meta name="description" content="添加依赖配置在project build.gradle中添加:
+allprojects {
+    repositories {
+        ...
+        maven {
+            // All of React Native (JS, Android binaries) is installed from npm
+            url &amp;quot;$root">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ViewPager卡顿优化实战">
-<meta property="og:url" content="http://yoursite.com/2016/08/15/ViewPager卡顿优化实战/index.html">
+<meta property="og:title" content="Android集成React Native实现多Tab页">
+<meta property="og:url" content="http://yoursite.com/2016/11/07/Android集成React Native实现多Tab页/index.html">
 <meta property="og:site_name" content="Jameson's Blog">
-<meta property="og:description" content="应用UI卡顿常见原因主要在以下几个方面：
-
-人为在UI线程中做轻微耗时操作，导致UI线程卡顿；
-
-布局Layout过于复杂，无法在16ms内完成渲染；
-
-同一时间动画执行的次数过多，导致CPU或GPU负载过重；
-
-View过度绘制，导致某些像素在同一帧时间内被绘制多次，从而使CPU或GPU负载过重；
-
-View频繁的触发measure、layout，导致measure、layout累计耗时过多及整">
-<meta property="og:image" content="http://7xqerh.com1.z0.glb.clouddn.com/opt_lesson_card_before.jpg">
-<meta property="og:image" content="http://7xqerh.com1.z0.glb.clouddn.com/opt_open_traceview.png">
-<meta property="og:image" content="http://7xqerh.com1.z0.glb.clouddn.com/opt_traceview2.png">
-<meta property="og:image" content="http://7xqerh.com1.z0.glb.clouddn.com/opt_traceview.png">
-<meta property="og:image" content="http://7xqerh.com1.z0.glb.clouddn.com/opt_round_angle_imageview.png">
-<meta property="og:image" content="http://7xqerh.com1.z0.glb.clouddn.com/opt_instantiateItem1.png">
-<meta property="og:image" content="http://7xqerh.com1.z0.glb.clouddn.com/opt_instantiateItem_log.png">
-<meta property="og:image" content="http://7xqerh.com1.z0.glb.clouddn.com/opt_instantiateItem2.png">
-<meta property="og:image" content="http://7xqerh.com1.z0.glb.clouddn.com/opt_addview.png">
-<meta property="og:image" content="http://7xqerh.com1.z0.glb.clouddn.com/opt_addview_log.png">
-<meta property="og:image" content="http://7xqerh.com1.z0.glb.clouddn.com/opt_lesson_card_after.jpg">
-<meta property="og:image" content="http://7xqerh.com1.z0.glb.clouddn.com/opt_lesson_card_lls.jpg">
-<meta property="og:updated_time" content="2016-08-16T06:45:11.000Z">
+<meta property="og:description" content="添加依赖配置在project build.gradle中添加:
+allprojects {
+    repositories {
+        ...
+        maven {
+            // All of React Native (JS, Android binaries) is installed from npm
+            url &amp;quot;$root">
+<meta property="og:image" content="http://7xqerh.com1.z0.glb.clouddn.com/fc_2016-11-07-16-05-46.png">
+<meta property="og:image" content="http://7xqerh.com1.z0.glb.clouddn.com/fc_2016-11-07-16-15-05.png">
+<meta property="og:image" content="http://7xqerh.com1.z0.glb.clouddn.com/fc_2016-11-07-16-15-23.png">
+<meta property="og:updated_time" content="2016-11-07T08:33:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ViewPager卡顿优化实战">
-<meta name="twitter:description" content="应用UI卡顿常见原因主要在以下几个方面：
-
-人为在UI线程中做轻微耗时操作，导致UI线程卡顿；
-
-布局Layout过于复杂，无法在16ms内完成渲染；
-
-同一时间动画执行的次数过多，导致CPU或GPU负载过重；
-
-View过度绘制，导致某些像素在同一帧时间内被绘制多次，从而使CPU或GPU负载过重；
-
-View频繁的触发measure、layout，导致measure、layout累计耗时过多及整">
-<meta name="twitter:image" content="http://7xqerh.com1.z0.glb.clouddn.com/opt_lesson_card_before.jpg">
+<meta name="twitter:title" content="Android集成React Native实现多Tab页">
+<meta name="twitter:description" content="添加依赖配置在project build.gradle中添加:
+allprojects {
+    repositories {
+        ...
+        maven {
+            // All of React Native (JS, Android binaries) is installed from npm
+            url &amp;quot;$root">
+<meta name="twitter:image" content="http://7xqerh.com1.z0.glb.clouddn.com/fc_2016-11-07-16-05-46.png">
 
 
 
@@ -157,9 +136,9 @@ View频繁的触发measure、layout，导致measure、layout累计耗时过多�
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/08/15/ViewPager卡顿优化实战/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/07/Android集成React Native实现多Tab页/"/>
 
-  <title> ViewPager卡顿优化实战 | Jameson's Blog </title>
+  <title> Android集成React Native实现多Tab页 | Jameson's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -302,7 +281,7 @@ View频繁的触发measure、layout，导致measure、layout累计耗时过多�
             
             
               
-                ViewPager卡顿优化实战
+                Android集成React Native实现多Tab页
               
             
           </h1>
@@ -314,8 +293,8 @@ View频繁的触发measure、layout，导致measure、layout累计耗时过多�
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-08-15T16:46:59+08:00" content="2016-08-15">
-              2016-08-15
+            <time itemprop="dateCreated" datetime="2016-11-07T16:25:42+08:00" content="2016-11-07">
+              2016-11-07
             </time>
           </span>
 
@@ -342,63 +321,163 @@ View频繁的触发measure、layout，导致measure、layout累计耗时过多�
       
 
       
-        <p>应用UI卡顿常见原因主要在以下几个方面：</p>
-<ol>
-<li><p>人为在UI线程中做轻微耗时操作，导致UI线程卡顿；</p>
-</li>
-<li><p>布局Layout过于复杂，无法在16ms内完成渲染；</p>
-</li>
-<li><p>同一时间动画执行的次数过多，导致CPU或GPU负载过重；</p>
-</li>
-<li><p>View过度绘制，导致某些像素在同一帧时间内被绘制多次，从而使CPU或GPU负载过重；</p>
-</li>
-<li><p>View频繁的触发measure、layout，导致measure、layout累计耗时过多及整个View频繁的重新渲染；</p>
-</li>
-<li><p>内存频繁触发GC过多（同一帧中频繁创建内存），导致暂时阻塞渲染操作；</p>
-</li>
-<li><p>冗余资源及逻辑等导致加载和执行缓慢；</p>
-</li>
-</ol>
-<a id="more"></a>
-<h2 id="发现和定位问题，及解决方案"><a href="#发现和定位问题，及解决方案" class="headerlink" title="发现和定位问题，及解决方案"></a>发现和定位问题，及解决方案</h2><p>打开GPU绘制，手指在卡片上来回滑来滑去，通过观察高线的位置判断卡顿的时机，我们发现滑动停止后再一次滑动时出现高峰，如图，按照经验ViewPager的卡顿问题在于滑动事件的回调，重点排查<code>onPageScrolled</code>，<code>onPageSelected</code>及<code>Adapter</code>的<code>instantiateItem</code>方法。</p>
-<p><img src="http://7xqerh.com1.z0.glb.clouddn.com/opt_lesson_card_before.jpg" width="300px" alert="http://7xqerh.com1.z0.glb.clouddn.com/opt_lesson_card_before.jpg?imageView2/2/h/500"></p>
-<p>为了更精确的定位耗时方法，可以使用TraceView。打开DDMS，进入下面界面</p>
-<p><img src="http://7xqerh.com1.z0.glb.clouddn.com/opt_open_traceview.png" alt=""></p>
-<p>点击红点位置开始录制，滑动手机屏幕，一段时间后再点击红点停止录制。分析下面的图</p>
-<p><img src="http://7xqerh.com1.z0.glb.clouddn.com/opt_traceview2.png" alt=""></p>
-<p><img src="http://7xqerh.com1.z0.glb.clouddn.com/opt_traceview.png" alt=""></p>
-<p>可以看到耗时最多的两个方法，RoundAngleImageView的draw方法和CardAdapter的instantiateItem方法。我们通过打log也应证了TraceView的判断，<strong>ViewPager滑动过程中RoundAngleImageView会不断绘制</strong>，在滑动停顿后又开始滑动得时候出现耗时峰值。优化的方案就是用RoundedImageView替换掉自定义的RoundAngleImageView，RoundedImageView使用BitmapShader方式优于RoundAngleImageView使用的PorterDuffXfermode圆角方案。特别在不断绘制的情况下，效果较明显。</p>
-<p><img src="http://7xqerh.com1.z0.glb.clouddn.com/opt_round_angle_imageview.png" alt=""></p>
-<p>接下来分析CardAdapter的instantiateItem方法，同样先看log，定位更细的方法</p>
-<p><img src="http://7xqerh.com1.z0.glb.clouddn.com/opt_instantiateItem1.png" alt=""></p>
-<p><img src="http://7xqerh.com1.z0.glb.clouddn.com/opt_instantiateItem_log.png" alt=""></p>
-<p>通过日志看出<code>val view = LayoutInflater.from(container.context).inflate(R.layout.``item_lesson_card``, container, false) as LessonCardView</code>和<code>initLessonCardView(position, view, cardList)</code>两个方法。</p>
-<p>inflate方法可做的优化就是减少View层级，把最外层的RelativeLayout替换成LinearLayout。另外一个优化就是把 <code>initLessonCardView</code>方法加入延时，对于当前显示的item延时为0，不可见的item延时时间与当前View的位置步距依次延长。通过分步延时避免UI线程一直被占用。</p>
-<p><img src="http://7xqerh.com1.z0.glb.clouddn.com/opt_instantiateItem2.png" alt=""></p>
-<p>下面来跟踪<code>initLessonCardView</code>方法</p>
-<p><img src="http://7xqerh.com1.z0.glb.clouddn.com/opt_addview.png" alt=""></p>
-<p><img src="http://7xqerh.com1.z0.glb.clouddn.com/opt_addview_log.png" alt=""></p>
-<p>通过日志发现耗时最大的在于View的构造函数。</p>
-<pre><code>val exerciseItemView: ExerciseItemView = ExerciseItemView(context)
-</code></pre><p>尝试把View的创建方法改成<code>inflate</code>方式，事实证明然并卵。</p>
-<pre><code>val exerciseItemView: ExerciseItemView = View.inflate(context, R.layout.view_exercise_item, null) as ExerciseItemView
-</code></pre><h2 id="优化后的图"><a href="#优化后的图" class="headerlink" title="优化后的图"></a>优化后的图</h2><p>左边是优化后的图，右边是某竞品的图，比较下很明显看出渲染的差异来</p>
-<p><img src="http://7xqerh.com1.z0.glb.clouddn.com/opt_lesson_card_after.jpg" width="300px"><br><img src="http://7xqerh.com1.z0.glb.clouddn.com/opt_lesson_card_lls.jpg" width="300px"></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>优化到此为止，总结一下View的优化套路。首先发现问题，通过GPU柱状图判断卡顿程度。然后通过TraceView定位卡顿的方法，打log方式找到更具体的耗时细节，然后逐个优化。</p>
-<p>本次ViewPager的优化包括：</p>
-<ul>
-<li><p><code>RoundedImageView</code>控件的选择，选择更高效的圆角方案</p>
-</li>
-<li><p>优化view的层次结构，尽量减少层级，同样层级情况使用<code>LinearLayout</code>优于<code>RelativeLayout</code></p>
-</li>
-<li><p><code>adapter instantiateItem</code>分布延迟渲染</p>
-</li>
-</ul>
-<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><p>ViewPager里包含ListView时，<code>layout_height</code>属性为<code>wrap_content</code>会导致<code>adapter getView</code>不断被调用，建议改成<code>match_content</code></p>
-<pre><code>&lt;ListView 
-    android:layout_width=&quot;match_parent&quot; 
-    android:layout_height=&quot;wrap_content&quot; /&gt;
-</code></pre>
+        <h2 id="添加依赖配置"><a href="#添加依赖配置" class="headerlink" title="添加依赖配置"></a>添加依赖配置</h2><p>在project build.gradle中添加:</p>
+<pre><code>allprojects {
+    repositories {
+        ...
+        maven {
+            // All of React Native (JS, Android binaries) is installed from npm
+            url &quot;$rootDir/../node_modules/react-native/android&quot;
+        }
+    }
+    ...
+}
+</code></pre><p>在app build.gradle中添加:</p>
+<pre><code>dependencies {
+    ...
+    compile &quot;com.facebook.react:react-native:+&quot; // From node_modules.
+}
+</code></pre><p><code>AndroidManifest.xml</code>中添加</p>
+<pre><code>&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
+&lt;uses-permission android:name=&quot;android.permission.SYSTEM_ALERT_WINDOW&quot;/&gt;
+
+&lt;application&gt;
+    ...
+    &lt;activity android:name=&quot;com.facebook.react.devsupport.DevSettingsActivity&quot; /&gt;
+    ...
+&lt;/application&gt;
+</code></pre><h2 id="集成ReactApplication"><a href="#集成ReactApplication" class="headerlink" title="集成ReactApplication"></a>集成ReactApplication</h2><p>自定义Application，实现ReactApplication接口</p>
+<pre><code>public class MyApplication extends Application implements ReactApplication {
+
+    private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
+
+        @Override
+        protected boolean getUseDeveloperSupport() {
+            return BuildConfig.DEBUG;
+        }
+
+ @Override
+        protected String getBundleAssetName() {
+            return super.getBundleAssetName();
+        }
+
+        @Override
+        protected String getJSBundleFile() {
+            return super.getJSBundleFile();
+        }
+
+        @Override
+        protected List&lt;ReactPackage&gt; getPackages() {
+            return Arrays.asList(
+                    new MainReactPackage()
+            );
+        }
+    };
+
+    @Override
+    public ReactNativeHost getReactNativeHost() {
+        return mReactNativeHost;
+    }
+
+}
+</code></pre><h2 id="Activity启动RN"><a href="#Activity启动RN" class="headerlink" title="Activity启动RN"></a>Activity启动RN</h2><pre><code>public class MainActivity extends ReactActivity {
+
+    /**
+     * Returns the name of the main component registered from JavaScript.
+     * This is used to schedule rendering of the component.
+     */
+    @Override
+    protected String getMainComponentName() {
+        return &quot;RNSample&quot;;
+    }
+}
+</code></pre><h2 id="Fragment启动RN"><a href="#Fragment启动RN" class="headerlink" title="Fragment启动RN"></a>Fragment启动RN</h2><p>android fragment中包含RN，FaceBook没有实现ReactFragment，需要我们自己实现，代码也很简单</p>
+<pre><code>public abstract class ReactFragment extends Fragment {
+    private ReactRootView mReactRootView;
+    private ReactInstanceManager mReactInstanceManager;
+
+    // This method returns the name of our top-level component to show
+    public abstract String getMainComponentName();
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mReactRootView = new ReactRootView(context);
+        mReactInstanceManager = ((MyApplication) getActivity().getApplication()).getReactNativeHost().getReactInstanceManager();
+    }
+
+    @Override
+    public ReactRootView onCreateView(LayoutInflater inflater, ViewGroup group, Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        return mReactRootView;
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        mReactRootView.startReactApplication(
+                mReactInstanceManager,
+                getMainComponentName(),
+                null
+        );
+    }
+}
+</code></pre><p>其他Fragment页面嵌入RN只要继承ReactFragment就行了，如</p>
+<pre><code>public class TabAppFragment extends ReactFragment {
+    @Override
+    public String getMainComponentName() {
+        return &quot;TabApp&quot;;
+    }
+}
+</code></pre><h2 id="android显示多个RN页面"><a href="#android显示多个RN页面" class="headerlink" title="android显示多个RN页面"></a>android显示多个RN页面</h2><p>假设有个需求，android页面某几个Tab要用RN来实现，效果如下，怎么做？</p>
+<p><img src="http://7xqerh.com1.z0.glb.clouddn.com/fc_2016-11-07-16-05-46.png" alt=""></p>
+<p><img src="http://7xqerh.com1.z0.glb.clouddn.com/fc_2016-11-07-16-15-05.png" alt=""></p>
+<p><img src="http://7xqerh.com1.z0.glb.clouddn.com/fc_2016-11-07-16-15-23.png" alt=""></p>
+<p>很简单，只要定义不同的Fragment就行了</p>
+<p>TabAppFragment.java</p>
+<pre><code>public class TabAppFragment extends ReactFragment {
+    @Override
+    public String getMainComponentName() {
+        return &quot;TabApp&quot;;
+    }
+}
+</code></pre><p>TabWorkFragment.java</p>
+<pre><code>public class TabWorkFragment extends ReactFragment {
+    @Override
+    public String getMainComponentName() {
+        return &quot;TabWork&quot;;
+    }
+}
+</code></pre><p>RN端<code>index.android.js</code> 重点在于<strong>AppRegistry.registerComponent是可以注册多个Component的</strong>，很多人忽略了这个以为RN只有一个入口。</p>
+<pre><code>export class TabWork extends Component {
+  render() {
+    return (
+      &lt;View style={styles.container}&gt;
+        &lt;Text style={styles.welcome}&gt;
+          Welcome to React Native TabWork!
+        &lt;/Text&gt;
+      &lt;/View&gt;
+    );
+  }
+}
+
+
+export class TabApp extends Component {
+  render() {
+    return (
+      &lt;View style={styles.container}&gt;
+        &lt;Text style={styles.welcome}&gt;
+          Welcome to React Native TabApp!
+        &lt;/Text&gt;
+      &lt;/View&gt;
+    );
+  }
+}
+
+AppRegistry.registerComponent(&#39;TabWork&#39;, () =&gt; TabWork);
+AppRegistry.registerComponent(&#39;TabApp&#39;, () =&gt; TabApp);
+</code></pre><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://facebook.github.io/react-native/docs/integration-with-existing-apps.html" target="_blank" rel="external">https://facebook.github.io/react-native/docs/integration-with-existing-apps.html</a></p>
+
       
     </div>
 
@@ -418,18 +497,24 @@ View频繁的触发measure、layout，导致measure、layout累计耗时过多�
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/React-Native/" rel="tag">#React Native</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/09/02/使用RecyclerView实现Gallery画廊效果/" rel="next" title="使用RecyclerView实现Gallery画廊效果">
+                <i class="fa fa-chevron-left"></i> 使用RecyclerView实现Gallery画廊效果
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/01/LinearSnapHelper源码解析/" rel="prev" title="LinearSnapHelper源码解析">
-                LinearSnapHelper源码解析 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -591,7 +676,7 @@ View频繁的触发measure、layout，导致measure、layout累计耗时过多�
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#发现和定位问题，及解决方案"><span class="nav-number">1.</span> <span class="nav-text">发现和定位问题，及解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化后的图"><span class="nav-number">2.</span> <span class="nav-text">优化后的图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tips"><span class="nav-number">4.</span> <span class="nav-text">Tips</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#添加依赖配置"><span class="nav-number">1.</span> <span class="nav-text">添加依赖配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集成ReactApplication"><span class="nav-number">2.</span> <span class="nav-text">集成ReactApplication</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Activity启动RN"><span class="nav-number">3.</span> <span class="nav-text">Activity启动RN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fragment启动RN"><span class="nav-number">4.</span> <span class="nav-text">Fragment启动RN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#android显示多个RN页面"><span class="nav-number">5.</span> <span class="nav-text">android显示多个RN页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">6.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
           </div>
         </section>

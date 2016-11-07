@@ -261,6 +261,255 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/07/Android集成React Native实现多Tab页/" itemprop="url">
+                  Android集成React Native实现多Tab页
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-11-07T16:25:42+08:00" content="2016-11-07">
+              2016-11-07
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="添加依赖配置"><a href="#添加依赖配置" class="headerlink" title="添加依赖配置"></a>添加依赖配置</h2><p>在project build.gradle中添加:</p>
+<pre><code>allprojects {
+    repositories {
+        ...
+        maven {
+            // All of React Native (JS, Android binaries) is installed from npm
+            url &quot;$rootDir/../node_modules/react-native/android&quot;
+        }
+    }
+    ...
+}
+</code></pre><p>在app build.gradle中添加:</p>
+<pre><code>dependencies {
+    ...
+    compile &quot;com.facebook.react:react-native:+&quot; // From node_modules.
+}
+</code></pre><p><code>AndroidManifest.xml</code>中添加</p>
+<pre><code>&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
+&lt;uses-permission android:name=&quot;android.permission.SYSTEM_ALERT_WINDOW&quot;/&gt;
+
+&lt;application&gt;
+    ...
+    &lt;activity android:name=&quot;com.facebook.react.devsupport.DevSettingsActivity&quot; /&gt;
+    ...
+&lt;/application&gt;
+</code></pre><h2 id="集成ReactApplication"><a href="#集成ReactApplication" class="headerlink" title="集成ReactApplication"></a>集成ReactApplication</h2><p>自定义Application，实现ReactApplication接口</p>
+<pre><code>public class MyApplication extends Application implements ReactApplication {
+
+    private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
+
+        @Override
+        protected boolean getUseDeveloperSupport() {
+            return BuildConfig.DEBUG;
+        }
+
+ @Override
+        protected String getBundleAssetName() {
+            return super.getBundleAssetName();
+        }
+
+        @Override
+        protected String getJSBundleFile() {
+            return super.getJSBundleFile();
+        }
+
+        @Override
+        protected List&lt;ReactPackage&gt; getPackages() {
+            return Arrays.asList(
+                    new MainReactPackage()
+            );
+        }
+    };
+
+    @Override
+    public ReactNativeHost getReactNativeHost() {
+        return mReactNativeHost;
+    }
+
+}
+</code></pre><h2 id="Activity启动RN"><a href="#Activity启动RN" class="headerlink" title="Activity启动RN"></a>Activity启动RN</h2><pre><code>public class MainActivity extends ReactActivity {
+
+    /**
+     * Returns the name of the main component registered from JavaScript.
+     * This is used to schedule rendering of the component.
+     */
+    @Override
+    protected String getMainComponentName() {
+        return &quot;RNSample&quot;;
+    }
+}
+</code></pre><h2 id="Fragment启动RN"><a href="#Fragment启动RN" class="headerlink" title="Fragment启动RN"></a>Fragment启动RN</h2><p>android fragment中包含RN，FaceBook没有实现ReactFragment，需要我们自己实现，代码也很简单</p>
+<pre><code>public abstract class ReactFragment extends Fragment {
+    private ReactRootView mReactRootView;
+    private ReactInstanceManager mReactInstanceManager;
+
+    // This method returns the name of our top-level component to show
+    public abstract String getMainComponentName();
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mReactRootView = new ReactRootView(context);
+        mReactInstanceManager = ((MyApplication) getActivity().getApplication()).getReactNativeHost().getReactInstanceManager();
+    }
+
+    @Override
+    public ReactRootView onCreateView(LayoutInflater inflater, ViewGroup group, Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        return mReactRootView;
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        mReactRootView.startReactApplication(
+                mReactInstanceManager,
+                getMainComponentName(),
+                null
+        );
+    }
+}
+</code></pre><p>其他Fragment页面嵌入RN只要继承ReactFragment就行了，如</p>
+<pre><code>public class TabAppFragment extends ReactFragment {
+    @Override
+    public String getMainComponentName() {
+        return &quot;TabApp&quot;;
+    }
+}
+</code></pre><h2 id="android显示多个RN页面"><a href="#android显示多个RN页面" class="headerlink" title="android显示多个RN页面"></a>android显示多个RN页面</h2><p>假设有个需求，android页面某几个Tab要用RN来实现，效果如下，怎么做？</p>
+<p><img src="http://7xqerh.com1.z0.glb.clouddn.com/fc_2016-11-07-16-05-46.png" alt=""></p>
+<p><img src="http://7xqerh.com1.z0.glb.clouddn.com/fc_2016-11-07-16-15-05.png" alt=""></p>
+<p><img src="http://7xqerh.com1.z0.glb.clouddn.com/fc_2016-11-07-16-15-23.png" alt=""></p>
+<p>很简单，只要定义不同的Fragment就行了</p>
+<p>TabAppFragment.java</p>
+<pre><code>public class TabAppFragment extends ReactFragment {
+    @Override
+    public String getMainComponentName() {
+        return &quot;TabApp&quot;;
+    }
+}
+</code></pre><p>TabWorkFragment.java</p>
+<pre><code>public class TabWorkFragment extends ReactFragment {
+    @Override
+    public String getMainComponentName() {
+        return &quot;TabWork&quot;;
+    }
+}
+</code></pre><p>RN端<code>index.android.js</code> 重点在于<strong>AppRegistry.registerComponent是可以注册多个Component的</strong>，很多人忽略了这个以为RN只有一个入口。</p>
+<pre><code>export class TabWork extends Component {
+  render() {
+    return (
+      &lt;View style={styles.container}&gt;
+        &lt;Text style={styles.welcome}&gt;
+          Welcome to React Native TabWork!
+        &lt;/Text&gt;
+      &lt;/View&gt;
+    );
+  }
+}
+
+
+export class TabApp extends Component {
+  render() {
+    return (
+      &lt;View style={styles.container}&gt;
+        &lt;Text style={styles.welcome}&gt;
+          Welcome to React Native TabApp!
+        &lt;/Text&gt;
+      &lt;/View&gt;
+    );
+  }
+}
+
+AppRegistry.registerComponent(&#39;TabWork&#39;, () =&gt; TabWork);
+AppRegistry.registerComponent(&#39;TabApp&#39;, () =&gt; TabApp);
+</code></pre><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://facebook.github.io/react-native/docs/integration-with-existing-apps.html" target="_blank" rel="external">https://facebook.github.io/react-native/docs/integration-with-existing-apps.html</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/02/使用RecyclerView实现Gallery画廊效果/" itemprop="url">
                   使用RecyclerView实现Gallery画廊效果
                 </a>
@@ -405,7 +654,7 @@
 
       
         
-          <p>Google最新发布的<a href="https://developer.android.com/topic/libraries/support-library/features.html#v7-recyclerview">support recyclerview</a>包更新到24.2.0，这次来聊聊RecyclerView的新特性和SnapHelper的关系。</p>
+          <p>Google最新发布的<a href="https://developer.android.com/topic/libraries/support-library/features.html#v7-recyclerview">Support RecyclerView</a>包更新到24.2.0，这次来聊聊RecyclerView的<a href="https://developer.android.com/topic/libraries/support-library/revisions.html#24-2-0-api-updates">新特性</a>和SnapHelper的关系。</p>
 <p>一句话介绍<a href="https://developer.android.com/reference/android/support/v7/widget/SnapHelper.html">SnapHelper</a>: SnapHelper是RecyclerView功能的一种拓展，使RecyclerView滑动行为类似ViewPager，无论怎么滑动最终停留在某页正中间。ViewPager一次只能滑动一页，RecyclerView+SnapHelper方式可以一次滑动好几页，且最终都停留在某页正中间。非常实用和酷炫。<br>SnapHelper的实现原理是监听RecyclerView.OnFlingListener中的onFling接口。<code>LinearSnapHelper</code>是抽象类SnapHelper的具体实现。</p>
 <p><img src="http://7xqerh.com1.z0.glb.clouddn.com/SnapHelper.gif" alt=""></p>
           <div class="post-more-link text-center">
@@ -592,7 +841,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -602,7 +851,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
